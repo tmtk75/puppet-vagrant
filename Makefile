@@ -9,5 +9,5 @@ install: ./modules/virtualbox
 	./bin/librarian-puppet install
 
 clean:
-	rm -rf modules
+	rm -rf modules .tmp .librarian .bundle bin *.lock
 
