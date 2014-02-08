@@ -1,0 +1,9 @@
+.*.swp
+Gemfile.lock
+Puppetfile.lock
+.bundle/
+bin/
+.librarian/
+.tmp/
+modules/
+
