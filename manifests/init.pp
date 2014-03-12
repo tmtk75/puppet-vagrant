@@ -7,14 +7,14 @@ class vagrant {
 
 class vagrant::centos {
   exec { vagrant:
-    command => "rpm -Uvh https://dl.bintray.com/mitchellh/vagrant/vagrant_1.4.3_i686.rpm",
+    command => "rpm -Uvh https://dl.bintray.com/mitchellh/vagrant/vagrant_1.5.0_x86_64.rpm",
     creates => "/usr/bin/vagrant",
     path    => '/usr/bin:/usr/sbin:/bin:/usr/local/bin',
   }
 }
 
 class vagrant::darwin {
-  $version = "1.4.3"
+  $version = "1.5.0"
 
   package { "Vagrant-${version}.dmg":
     ensure   => installed,
