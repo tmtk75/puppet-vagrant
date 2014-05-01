@@ -1,4 +1,7 @@
 class vagrant {
+
+  $version = "1.5.4"
+
   case $operatingsystem {
     'Darwin' : { include vagrant::darwin }
     'CentOS' : { include vagrant::centos }
@@ -7,18 +10,17 @@ class vagrant {
 
 class vagrant::centos {
   exec { vagrant:
-    command => "rpm -Uvh https://dl.bintray.com/mitchellh/vagrant/vagrant_1.5.1_x86_64.rpm",
+    command => "rpm -Uvh https://dl.bintray.com/mitchellh/vagrant/vagrant_${vagrant::version}_x86_64.rpm",
     creates => "/usr/bin/vagrant",
     path    => '/usr/bin:/usr/sbin:/bin:/usr/local/bin',
   }
 }
 
 class vagrant::darwin {
-  $version = "1.5.1"
 
-  package { "Vagrant-${version}.dmg":
-    ensure   => installed,
-    source   => "https://dl.bintray.com/mitchellh/vagrant/Vagrant-${version}.dmg",
+  package { "Vagrant-${vagrant::version}.dmg":
+    ensure   => "version",
+    source   => "https://dl.bintray.com/mitchellh/vagrant/Vagrant-${vagrant::version}.dmg",
     provider => 'pkgdmg'
   }
 }
