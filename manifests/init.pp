@@ -1,6 +1,6 @@
 class vagrant {
 
-  $version = "1.5.4"
+  $version = "1.6.2"
 
   case $operatingsystem {
     'Darwin' : { include vagrant::darwin }
